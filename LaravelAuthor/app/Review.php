@@ -8,7 +8,7 @@ class Review extends Model
 {
     protected $fillable = ['work_id', 'source', 'link', 'importance', 'body'];
     
-    public work() {
+    public function work() {
         return $this->belongsTo('App\Work');
     }
 }

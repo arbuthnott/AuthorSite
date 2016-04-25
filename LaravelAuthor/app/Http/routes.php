@@ -13,9 +13,16 @@
 
 Route::get('/', 'PublicController@index');
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/works', 'PublicController@works');
+Route::get('/works/{work}', 'PublicController@showWork');
+
+Route::get('/blog', 'PublicController@blog');
+Route::get('/blog/tagged/{tag}', 'PublicController@showTagged');
+Route::get('/blog/{article}', 'PublicController@showArticle');
+
+Route::get('/about', 'PublicController@about');
+Route::get('/purchase', 'PublicController@purchase');
+Route::get('/contact', 'PublicController@contact');
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +36,5 @@ Route::get('/', 'PublicController@index');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    // put routes here I think?
 });

@@ -1,0 +1,8 @@
+/*****************************
+ * STYLE SHEET FOR HOME PAGE *
+ *****************************/
+
+.squareInlineImage#homeImage {
+    max-width: 300px;
+    background-image: url('/images/StickmanHi.png');
+}

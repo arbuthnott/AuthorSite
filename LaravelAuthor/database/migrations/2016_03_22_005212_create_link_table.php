@@ -18,6 +18,7 @@ class CreateLinkTable extends Migration
             $table->string('type')->nullable();
             $table->string('description')->nullable();
             $table->integer('work_id')->unsigned();
+            $table->timestamps();
             
             $table->foreign('work_id')->references('id')->on('works');
         });

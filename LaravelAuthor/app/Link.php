@@ -8,7 +8,7 @@ class Link extends Model
 {
     protected $fillable = ['url', 'type', 'description', 'work_id'];
     
-    public work() {
+    public function work() {
         return $this->belongsTo('App\Work');
     }
 }
