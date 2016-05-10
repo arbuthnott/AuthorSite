@@ -1,0 +1,133 @@
+/*************************************
+ * STYLE SHEET APPLIED TO WHOLE SITE *
+ *************************************/
+
+body {
+    background-color: rgb(38, 69, 72);
+    color: white;
+    font-family: "Trebuchet MS", "Geneva", sans-serif;
+    
+}
+
+div#centeringContainer {
+    text-align: center;
+}
+
+div#centeredContainer {
+    text-align: left;
+    display: inline-block;
+    max-width: 95%;
+    min-width: 50%;
+}
+
+/*******************
+ * REUSABLE STYLES *
+ *******************/
+
+.clearing {
+    clear: both;
+}
+
+div.textSpacer {
+    min-width: 200px;
+    padding: 16px 0px;
+}
+
+.textSpacer > :first-child {
+    margin-top: 0px;
+}
+
+div.squareInlineImage {
+    display: inline-block;
+    overflow: hidden;
+    float: left;
+    margin: 16px 16px 16px 0px;
+    width: 95%;
+    border: 4px solid white;
+    background-color: grey;
+    background-size: contain;
+}
+
+div.squareImageSpacer {
+    width: 100%;
+    padding-top: 100%;
+}
+
+div.bookImageSpacer {
+    width: 100%;
+    padding-top: 150%;
+}
+
+a {
+    color: rgb(67, 182, 193);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(185, 224, 227);
+}
+
+a.linkonly, a.linkonly:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/****************
+ * HEADER TITLE *
+ ****************/
+
+h1#headerTitle {
+    font-family: "Georgia", serif;
+    text-align: right;
+    font-size: 48px;
+    color: white;
+    display: inline-block;
+    line-height: 0.7em;
+}
+
+h1#headerTitle span#headerSubtitle {
+    font-size: 24px;
+    color: rgb(18, 122, 132);
+}
+
+/*******************
+ * MAIN NAVIGATION *
+ *******************/
+
+nav#mainNav {
+    background-color: rgb(1, 44, 48);
+    overflow: hidden;
+}
+
+nav#mainNav ul {
+    list-style: none;
+    margin-top: 0px;
+}
+
+nav#mainNav li {
+    font-size: 1.4em;
+    float: left;
+    border: 2px solid rgb(1, 44, 48);
+}
+
+nav#mainNav li:hover {
+    border: 2px solid rgb(185, 224, 227);
+}
+
+nav#mainNav a {
+    padding: 16px;
+    display: block;
+}
+
+/*****************
+ * FOOTER SYTLES *
+ *****************/
+
+footer {
+    clear: both;
+    background-color: rgb(1, 44, 48);
+    padding: 16px;
+    border-top: 2px solid white;
+    text-align: center;
+    font-size: 0.7em;
+}

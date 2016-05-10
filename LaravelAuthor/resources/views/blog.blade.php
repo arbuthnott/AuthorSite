@@ -20,17 +20,7 @@
     @else
         @foreach ($articles as $article)
             <hr />
-            <h3><a href="/blog/{{ $article->id }}">{{ $article->title }}</a></h3>
-            <p><strong>{{ $article->created_at }}</strong></p>
-            <p>{{ $article->body }}</p>
-            @if (!$article->tags->isEmpty())
-                <p>
-                    Tags:
-                    @foreach ($article->tags as $tg)
-                        <a href="/blog/tagged/{{ $tg->name }}">{{ $tg->name }}</a>
-                    @endforeach
-                </p>
-            @endif
+            @include('partials.publicArticle')
         @endforeach
     @endif
 @endsection

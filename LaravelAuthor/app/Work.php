@@ -15,4 +15,8 @@ class Work extends Model
     public function reviews() {
         return $this->hasMany('App\Review');
     }
+    
+    public function series() {
+        return $this->belongsTo('App\Series');
+    }
 }

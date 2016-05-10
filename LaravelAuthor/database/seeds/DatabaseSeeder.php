@@ -6,6 +6,7 @@ use App\Work;
 use App\Review;
 use App\Link;
 use App\Article;
+use App\Series;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call('SeriesTableSeeder');
         $this->call('WorksTableSeeder');
         $this->call('ReviewsTableSeeder');
         $this->call('LinksTableSeeder');
@@ -24,15 +26,30 @@ class DatabaseSeeder extends Seeder
     }
 }
 
+class SeriesTableSeeder extends Seeder
+{
+    public function run() {
+        Series::create([
+            'name' => 'Dominion',
+            'alias' => 'dominion',
+            'short_description' => "A saga set in a world where airships ply the air for spirits to power their strange machines.",
+            'long_description' => "A fantasy adventure set in a world where airships ply the air for spirits to power their strange machines. A young girl trying to preserve her family airship must fight against a tycoon who threatens this world's way of life.  And this is just the beginning of her adventures...  Bla, bla, more...",
+            'importance' => 5
+        ]);
+    }
+}
+
 class WorksTableSeeder extends Seeder
 {
     public function run() {
+        $series = Series::lists('id', 'alias');
         Work::create([
             'title' => 'Dominion',
             'alias' => 'dominion',
             'short_description' => "A fantasy adventure set in a world where airships ply the air for spirits to power their strange machines.",
             'long_description' => "A fantasy adventure set in a world where airships ply the air for spirits to power their strange machines. A young girl trying to preserve her family airship must fight against a tycoon who threatens this world's way of life.  Bla, bla, more...",
-            'publish_date' => DateTime::createFromFormat("Y-m-d", "2015-05-01")
+            'publish_date' => DateTime::createFromFormat("Y-m-d", "2015-05-01"),
+            'series_id' => $series['dominion']
         ]);
         
         Work::create([

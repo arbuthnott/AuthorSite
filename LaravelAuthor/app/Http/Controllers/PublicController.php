@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Work;
 use App\Article;
 use App\Link;
+use App\Series;
 
 class PublicController extends Controller
 {
@@ -17,7 +18,11 @@ class PublicController extends Controller
 	 */
 	public function index()
 	{
-		return view('home');
+		$recentBook = Work::orderBy('publish_date', 'desc')->first();
+		$recentBookLink = $recentBook->links()->where('type', 'amazon')->first();
+		$review = $recentBook->reviews()->orderBy('importance', 'desc')->first();
+		$recentArticle = Article::orderBy('importance', 'desc')->first();
+		return view('home', compact(['recentBook', 'recentBookLink', 'recentArticle', 'review']));
 	}
 	
 	public function works()
@@ -50,24 +55,26 @@ class PublicController extends Controller
 		return view('article', compact('article'));
 	}
 	
-	public function purchase()
+	public function series()
 	{
-		// show a page with purchase instructions/links
-		$amazon = Link::where('type', 'amazon')->get();
-		$publisher = Link::where('type', 'publisher')->get();
-		$other = Link::whereNotIn('type', ['amazon', 'publisher'])->get();
-		return view('purchase', compact(['amazon', 'publisher', 'other']));
+		$allSeries = Series::orderBy('importance', 'desc')->get();
+		return view('series', compact('allSeries'));
+	}
+	
+	public function showSeries($series)
+	{
+		return view('seriesDetail', compact('series'));
 	}
 	
 	public function contact()
 	{
 		// show a dedicated contact page
-		dd("contact method in public controller");
+		return view('contact');
 	}
 	
 	public function about()
 	{
 		// show a dedicated about page
-		dd("about method in public controller");
+		return view('about');
 	}
 }

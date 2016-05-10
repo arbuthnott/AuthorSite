@@ -1,9 +1,9 @@
 @extends('master')
 
 @section('endOfHead')
-    <title>{{ $article->title }}</title>
+    <title>Shane Arbuthnott: Series</title>
 @endsection
 
 @section('content')
-    @include('partials.publicArticle')  
+    <h1>Page to list all series...</h1>
 @endsection

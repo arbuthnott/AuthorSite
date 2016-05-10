@@ -19,7 +19,10 @@ class CreateWorkTable extends Migration
             $table->text('short_description');
             $table->text('long_description');
             $table->date('publish_date');
+            $table->integer('series_id')->unsigned()->nullable();
             $table->timestamps();
+            
+            $table->foreign('series_id')->references('id')->on('series');
         });
     }
 

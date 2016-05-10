@@ -20,8 +20,10 @@ Route::get('/blog', 'PublicController@blog');
 Route::get('/blog/tagged/{tag}', 'PublicController@showTagged');
 Route::get('/blog/{article}', 'PublicController@showArticle');
 
+Route::get('/series', 'PublicController@series');
+Route::get('/series/{series}', 'PublicController@showSeries');
+
 Route::get('/about', 'PublicController@about');
-Route::get('/purchase', 'PublicController@purchase');
 Route::get('/contact', 'PublicController@contact');
 
 /*

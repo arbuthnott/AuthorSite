@@ -2,69 +2,44 @@
  * STYLE SHEET APPLIED TO WHOLE SITE *
  *************************************/
 
-body {
-    background-color: rgb(38, 69, 72);
-    color: white;
-    font-family: "Trebuchet MS", "Geneva", sans-serif;
-    
-}
-
-div#centeringContainer {
-    text-align: center;
-}
-
-div#centeredContainer {
-    text-align: left;
-    display: inline-block;
-    max-width: 95%;
-    min-width: 50%;
-}
+/*************************************
+ * COLORS
+ *
+ * GREYS
+ * verylight    #E8E8E8
+ * light        #D3D3D3
+ * grey         #BEBEBE
+ * dark         #818181
+ *
+ * BLUES
+ * primary      #1253A7
+ * dark         #294E7E
+ * verydark     #06336D
+ * light        #81B5F8
+ * verylight    #D2E3F8
+ *
+ * YELLOW
+ * primary      #FFA006
+ * dark         #A66702
+ * light        #FFCC79
+ *************************************/
 
 /*******************
- * REUSABLE STYLES *
+ * GLOBAL SETTINGS *
  *******************/
 
-.clearing {
-    clear: both;
-}
-
-div.textSpacer {
-    min-width: 200px;
-    padding: 16px 0px;
-}
-
-.textSpacer > :first-child {
-    margin-top: 0px;
-}
-
-div.squareInlineImage {
-    display: inline-block;
-    overflow: hidden;
-    float: left;
-    margin: 16px 16px 16px 0px;
-    width: 95%;
-    border: 4px solid white;
-    background-color: grey;
-    background-size: contain;
-}
-
-div.squareImageSpacer {
-    width: 100%;
-    padding-top: 100%;
-}
-
-div.bookImageSpacer {
-    width: 100%;
-    padding-top: 150%;
+body {
+    background-color: #E8E8E8; /* verylight grey*/
 }
 
 a {
-    color: rgb(67, 182, 193);
+    color: #81B5F8; /*light blue*/
     text-decoration: none;
 }
 
 a:hover {
-    color: rgb(185, 224, 227);
+    color: #D2E3F8; /*verylight blue*/
+    text-decoration: none;
 }
 
 a.linkonly, a.linkonly:hover {
@@ -72,22 +47,108 @@ a.linkonly, a.linkonly:hover {
     text-decoration: inherit;
 }
 
+/********************
+ * REUSABLE CLASSES *
+ ********************/
+
+.clearing {
+    clear: both;
+}
+
+.seeIt { /* just for testing during development */
+    border: 1px solid red;
+}
+
+img.fullColumn {
+    margin: 0px 3%;
+    width: 93%;
+    height: auto;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 8px black;
+}
+
+img.amazonOverlay {
+    position: relative;
+    margin-left: 6%;
+    width: 44%;
+    height: auto;
+    top: -40px;
+    opacity: 0.8;
+}
+
+img.amazonOverlay:hover {
+    opacity: 1;
+    box-shadow: 0px 0px 12px white;
+}
+
+div.bookImage {
+    background-image: url('/images/Stickbook.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+div.bookImage > div.spacer {
+    width: 100%;
+    padding-top: 150%;
+}
+
 /****************
  * HEADER TITLE *
  ****************/
 
-h1#headerTitle {
-    font-family: "Georgia", serif;
-    text-align: right;
-    font-size: 48px;
+div#headerContainer {
+    background-color: #294E7E; /*dark blue*/
     color: white;
-    display: inline-block;
-    line-height: 0.7em;
+    padding-bottom: 20px;
 }
 
-h1#headerTitle span#headerSubtitle {
-    font-size: 24px;
-    color: rgb(18, 122, 132);
+div#titleContainer {
+    float: left;
+}
+
+div#titleImage {
+    float: right;
+    margin-top: 20px;
+}
+
+div#titleImage img {
+    width: auto;
+    height: 100px;
+}
+
+h1.headerTitle {
+    color: #FFA006; /*yellow*/
+    font-family: "Georgia", serif;
+    text-align: right;
+    font-size: 4.2em;
+    display: inline-block;
+    margin-top: 30px;
+    line-height: 70%;
+}
+
+h1.headerTitle span.headerSubtitle {
+    color: white;
+    font-size: 0.4em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #06336D; /*verydark blue*/
+    display: inline-block;
+}
+
+h1.headerTitle span.headerSubtitle em{
+    color: #FFCC79; /*light yellow*/
+}
+
+h1.headerTitle#smallHeaderTitle {
+    font-size: 2.4em;
+}
+
+h1.headerTitle#smallHeaderTitle span.headerSubtitle{
+    font-size: 0.55em;
 }
 
 /*******************
@@ -95,8 +156,12 @@ h1#headerTitle span#headerSubtitle {
  *******************/
 
 nav#mainNav {
-    background-color: rgb(1, 44, 48);
+    background-color: #E8E8E8; /* verylight grey*/
     overflow: hidden;
+    border: 2px solid #FFA006; /*yellow*/
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
 }
 
 nav#mainNav ul {
@@ -107,16 +172,21 @@ nav#mainNav ul {
 nav#mainNav li {
     font-size: 1.4em;
     float: left;
-    border: 2px solid rgb(1, 44, 48);
 }
 
 nav#mainNav li:hover {
-    border: 2px solid rgb(185, 224, 227);
+    background-color: #D3D3D3; /*light grey*/
 }
 
 nav#mainNav a {
-    padding: 16px;
+    color: #06336D; /*verydark blue*/
+    letter-spacing: 0.1em;
+    padding: 4px 16px;
     display: block;
+}
+
+nav#mainNav a:hover {
+    color: #1253A7; /*primary blue*/
 }
 
 /*****************
@@ -125,9 +195,10 @@ nav#mainNav a {
 
 footer {
     clear: both;
-    background-color: rgb(1, 44, 48);
+    background-color: #06336D; /*verydark blue*/
+    color: #81B5F8; /*light blue*/
     padding: 16px;
-    border-top: 2px solid white;
+    border-top: 2px solid #FFA006; /*yellow*/
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.9em;
 }

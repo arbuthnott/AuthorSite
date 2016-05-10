@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use App\Work;
 use App\Tag;
 use App\Article;
+use App\Series;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -29,14 +30,20 @@ class RouteServiceProvider extends ServiceProvider
     {
         //
         $router->bind('work', function($alias) {
-            return Work::where('alias', $alias)->firstOrFail();
+            $work = Work::where('alias', $alias)->firstOrFail();
+            return $work ? $work : $alias;
         });
         $router->bind('tag', function($name) {
             $tag = Tag::where('name', $name)->first();
             return $tag ? $tag : $name;
         });
         $router->bind('article', function($articleId) {
-            return Article::where('id', $articleId)->firstOrFail();
+            $article = Article::where('id', $articleId)->first();
+            return $article ? $article : $articleId;
+        });
+        $router->bind('series', function($alias) {
+            $series = Series::where('alias', $alias)->first();
+            return $series ? $series : $alias;
         });
 
         parent::boot($router);

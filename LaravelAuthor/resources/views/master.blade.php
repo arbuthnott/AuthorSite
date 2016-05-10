@@ -6,8 +6,10 @@
     <!-- May want to augment this later with list of book titles? -->
 	<meta name="keywords" content="Shane Arbuthnott, Author, Books, Blog">
 	<meta name="author" content="Chris Arbuthnott">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
+	<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/site.css') }}" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -21,16 +23,15 @@
     
 </head>
 <body>
-	<div id="centeringContainer">
-		<div id="centeredContainer">
-			@include('partials.header')
-			@yield('content')
-			@include('partials.footer')
-		</div>
+	@include('partials.header')
+	<div class="container">
+		@yield('content')
 	</div>
+	@include('partials.footer')
 
 	<!-- jquery and other whole site scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	{!! Html::script('js/jquery.min.js') !!}
+	{!! Html::script('js/bootstrap.min.js') !!}
 	{!! Html::script('js/site.js') !!}
     @yield('endOfBody')
     
