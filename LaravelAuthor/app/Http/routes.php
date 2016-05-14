@@ -26,6 +26,13 @@ Route::get('/series/{series}', 'PublicController@showSeries');
 Route::get('/about', 'PublicController@about');
 Route::get('/contact', 'PublicController@contact');
 
+Route::get('/admin', 'AdminController@home');
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -40,3 +47,5 @@ Route::get('/contact', 'PublicController@contact');
 Route::group(['middleware' => ['web']], function () {
     // put routes here I think?
 });
+
+Route::auth();
